@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-07-19T19:52:02+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">TamilSelvan</title><subtitle>Portfolio</subtitle><author><name>TamilSelvan</name></author><entry><title type="html">Install Prometheus Operator with Grafana</title><link href="http://localhost:4000/devops/2024/07/18/prometheus/" rel="alternate" type="text/html" title="Install Prometheus Operator with Grafana" /><published>2024-07-18T00:00:00+05:30</published><updated>2024-07-18T00:00:00+05:30</updated><id>http://localhost:4000/devops/2024/07/18/prometheus</id><content type="html" xml:base="http://localhost:4000/devops/2024/07/18/prometheus/"><![CDATA[<h1 id="setting-up-prometheus-operator-with-helm-and-nginx-ingress">Setting Up Prometheus Operator with Helm and Nginx Ingress</h1>
+
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+  <li>Kubernetes cluster up and running</li>
+  <li><code class="language-plaintext highlighter-rouge">kubectl</code> configured to interact with your cluster</li>
+  <li><code class="language-plaintext highlighter-rouge">helm</code> installed</li>
+  <li>Cert-manager and Nginx Ingress controller installed on the cluster</li>
+</ul>
+
+<h3 id="1-create-a-new-namespace-for-prometheus-operator">1. Create a new namespace for Prometheus Operator</h3>
+
+<p>Create a new namespace called <code class="language-plaintext highlighter-rouge">monitoring</code>:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl create namespace monitoring
+</code></pre></div></div>
+
+<h3 id="2-add-the-prometheus-operator-helm-repository">2. Add the Prometheus Operator Helm repository</h3>
+
+<p>Add the Prometheus community Helm repository and update it:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo update
+</code></pre></div></div>
+
+<h3 id="3-install-the-prometheus-operator-chart-from-the-prometheus-community-repository">3. Install the Prometheus Operator chart from the prometheus-community repository:</h3>
+
+<p>Install the Prometheus Operator chart from the prometheus-community repository into the monitoring namespace:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>helm install prometheus prometheus-community/kube-prometheus-stack --namespace monitoring --create-namespace
+</code></pre></div></div>
+
+<h3 id="4-configure-nginx-ingress-for-prometheus-optional">4. Configure Nginx Ingress for Prometheus (optional)</h3>
+
+<p>Create an Ingress resource for Prometheus by creating a file named <code class="language-plaintext highlighter-rouge">prometheus-ingress.yml</code> with the following content:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">networking.k8s.io/v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Ingress</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">prometheus-ingress</span>
+  <span class="na">namespace</span><span class="pi">:</span> <span class="s">monitoring</span>
+  <span class="na">annotations</span><span class="pi">:</span>
+    <span class="na">cert-manager.io/cluster-issuer</span><span class="pi">:</span> <span class="s">letsencrypt-prod</span>
+    <span class="na">nginx.ingress.kubernetes.io/rewrite-target</span><span class="pi">:</span> <span class="s">/</span>
+
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">ingressClassName</span><span class="pi">:</span> <span class="s">nginx</span>
+  <span class="na">rules</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">host</span><span class="pi">:</span> <span class="s">prometheus.faveocloud.com</span>
+    <span class="na">http</span><span class="pi">:</span>
+      <span class="na">paths</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">path</span><span class="pi">:</span> <span class="s">/</span>
+        <span class="na">pathType</span><span class="pi">:</span> <span class="s">Prefix</span>
+        <span class="na">backend</span><span class="pi">:</span>
+          <span class="na">service</span><span class="pi">:</span>
+            <span class="na">name</span><span class="pi">:</span> <span class="s">prometheus-kube-prometheus-prometheus</span>
+            <span class="na">port</span><span class="pi">:</span>
+              <span class="na">number</span><span class="pi">:</span> <span class="m">9090</span>
+  <span class="na">tls</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">hosts</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">prometheus.faveocloud.com</span>
+    <span class="na">secretName</span><span class="pi">:</span> <span class="s">prometheus-tls</span>
+</code></pre></div></div>
+<p>Apply the Ingress resource</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl apply -f prometheus-ingress.yml
+</code></pre></div></div>
+
+<h3 id="5-configure-nginx-ingress-for-grafana">5. Configure Nginx Ingress for Grafana</h3>
+
+<p>Create an Ingress resource for Grafana by creating a file named <code class="language-plaintext highlighter-rouge">grafana-ingress.yml</code> with the following content:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: grafana-ingress
+  namespace: monitoring
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/rewrite-target: /
+
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: grafana.faveocloud.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: prometheus-grafana
+            port:
+              number: 80
+  tls:
+  - hosts:
+    - grafana.faveocloud.com
+    secretName: grafana-tls
+</code></pre></div></div>
+<p>Apply the Ingress resource</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl apply -f grafana-ingress.yml
+</code></pre></div></div>
+<h3 id="6-obtain-grafana-admin-password">6. Obtain Grafana Admin Password</h3>
+
+<p>Retrieve the Grafana admin password:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl get secret --namespace monitoring prometheus-grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
+</code></pre></div></div>
+<h3 id="7-verify-tls-certificate-issuance">7. Verify TLS Certificate Issuance</h3>
+
+<p>Verify that the TLS certificates for Prometheus and Grafana are issued correctly:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl get certificates -n monitoring
+kubectl describe certificate prometheus-tls -n monitoring
+kubectl describe certificate grafana-tls -n monitoring
+</code></pre></div></div>
+<p>These steps should help you set up Prometheus and Grafana with Ingress and TLS certificates in your Kubernetes cluster.</p>]]></content><author><name>TamilSelvan M</name></author><category term="DevOps" /><category term="DevOps" /><summary type="html"><![CDATA[Setting Up Prometheus Operator with Helm and Nginx Ingress]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/blog/prometheus-grafana.png" /><media:content medium="image" url="http://localhost:4000/assets/img/blog/prometheus-grafana.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

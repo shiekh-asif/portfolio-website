@@ -1,0 +1,44 @@
+# Theme Settings Configuration File
+##
+### use settings.yml file for configure colors, ui, rtl, sidebar, animation options
+
+### Main Settings
+settings:
+  skin: "light" # select initial skin option: "light" or "dark"
+
+### Preloader
+preloader:
+  logo:
+    image: "assets/img/logo.png"
+    alt: "TamilSelvan-Logo"
+
+### Header
+header:
+  logo:
+    image: "assets/img/logo.png"
+    alt: "TamilSelvan-Logo"
+
+### Social
+social:
+  - title: "Linkedin"
+    icon: "fab fa-linkedin"
+    url: "https://www.linkedin.com/in/thetamilselvan/"
+
+  - title: "Instagram"
+    icon: "fab fa-instagram"
+    url: "https://www.instagram.com/the_tamilselvan/"
+
+### Footer
+footer:
+  developer: "Developed by <strong>Tamilselvan</strong>"
+  copyright: "<strong>TamilSelvan</strong>. All rights reserved"
+
+### Portfolio Filters Settings
+portfolio:
+  layout: "list" # select works layout options: "Grid" or "List"
+  filters:
+    - name: "DevOps"
+      slug: "devops"
+
+    - name: "Web Development"
+      slug: "web-development"

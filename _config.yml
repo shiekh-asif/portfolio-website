@@ -1,0 +1,46 @@
+---
+title: "Mohammad Asif | DevOps Engineer"
+description: "Official personal website of Mohammad Asif – DevOps Engineer with expertise in Cloud, Linux, CI/CD, and Kubernetes."
+baseurl: ""
+url: "https://mohammadasif.dnsxpansion.com"
+theme_color: "#0A192F"
+lang: "en"
+
+# Theme settings
+logo: "/assets/img/profile2.jpg"
+favicon: "/assets/img/favicon.ico"
+social:
+  github: "https://github.com/shiekh-asif"
+  linkedin: "https://www.linkedin.com/in/mohammad-asif-048b0a232"
+  email: "er.m.asif@gmail.com"
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+
+# Multilingual
+languages:
+  en: "English"
+  ur: "اردو"
+  hi: "हिन्दी"
+default_lang: "en"
+
+# Collections
+collections:
+  works:
+    output: true
+  posts:
+    output: true
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-multiple-languages-plugin
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+

@@ -1,0 +1,214 @@
+---
+### Hero Section
+hero:
+  image: "assets/img/profile2.jpg"
+  image_alt: "Mohammad Asif"
+  title: "<b>Mohammad</b> Asif"
+  before_title: "Hi!, <b>I'm</b>"
+  after_title: "a <strong>DevOps Engineer</strong>"
+  description: "Highly motivated DevOps Engineer with 3+ years of experience in infrastructure management, CI/CD, and cloud-native tools. Skilled in server administration, container orchestration, and monitoring solutions."
+  button1:
+    label: "Download CV"
+    link: "https://drive.google.com/file/d/10z_jmTGPyHTJpeZf8-j0tAI4j9QOXNcc/view?usp=sharing"
+  button2:
+    label: "My Skills"
+    link: "#skills-section"
+  bg_title: "DevOps Engineer"
+  info:
+    - num: "3 <strong>+</strong>"
+      value: "Years of <strong>Experience</strong>"
+    - num: "20 <strong>+</strong>"
+      value: "Completed <strong>Projects</strong>"
+
+### Services Section
+services:
+  title: "What I Do"
+  subtitle: "my <b>Services</b>"
+  bg_title: "Services"
+  items:
+    - title: "Linux/Windows Server Management"
+      text: "Efficient management of Linux and Windows servers, including performance tuning, hardening, and automation."
+      button_label: "See Pricing"
+      button_link: "#pricing-section"
+
+    - title: "Cloud & DevOps Solutions"
+      text: "DevOps CI/CD pipelines with Jenkins, GitLab CI, ArgoCD, and configuration management using Ansible on cloud platforms."
+      button_label: "See Pricing"
+      button_link: "#pricing-section"
+
+    - title: "Containerization & Orchestration"
+      text: "Expert in Docker and Kubernetes-based application deployment and scaling with real-world production experience."
+      button_label: "See Pricing"
+      button_link: "#pricing-section"
+
+    - title: "Monitoring & Logging"
+      text: "Monitoring infrastructure health and log management using Zabbix, Prometheus, Grafana, Elasticsearch, Fluentbit, and Kibana."
+      button_label: "See Pricing"
+      button_link: "#pricing-section"
+
+    - title: "Web Hosting & Security"
+      text: "Assisting with secure and optimized web hosting environments using Apache, NGINX, and Litespeed with SSL, CSF, and firewall setups."
+      button_label: "See Pricing"
+      button_link: "#pricing-section"
+
+### Skills Section
+skills:
+  title: "Professional Skills"
+  subtitle: "my <br>Talent"
+  bg_title: "Skills"
+  column1:
+    items:
+      - label: "Cloud Services"
+        text: "AWS<br>Digital Ocean"
+      - label: "DB"
+        text: "MySQL<br>MariaDB"
+      - label: "Monitoring Tools"
+        text: "Zabbix<br>Prometheus<br>Grafana"
+  column2:
+    items:
+      - label: "OS Platforms"
+        text: "Linux (Debian/RHEL)<br>Windows Server"
+      - label: "CI/CD"
+        text: "Jenkins<br>GitLab CI<br>ArgoCD<br>Ansible"
+      - label: "Log Management"
+        text: "Elasticsearch<br>Fluentbit<br>Kibana"
+  column3:
+    items:
+      - label: "Web Servers"
+        text: "Apache<br>NGINX<br>Litespeed"
+      - label: "Scripting"
+        text: "Bash/Shell<br>Python"
+      - label: "Container Orchestration"
+        text: "Docker<br>Kubernetes"
+
+### Resume Section
+resume:
+  title: "Resume"
+  subtitle: "my <b>Story</b>"
+  bg_title: "History"
+  education:
+    title: "Education"
+    items:
+      - name: "Master of Technology"
+        subname: "I.K Gujral Punjab Technical University"
+        period: "2018 - 2020"
+        text: "M.Tech in Electronics & Communication Engineering (Wireless Communication)"
+
+      - name: "Bachelor of Technology"
+        subname: "Baba Ghulam Shah Badshah University"
+        period: "2014 - 2018"
+        text: "B.Tech in Electronics and Communication Engineering"
+
+  experience:
+    title: "Experience"
+    items:
+      - name: "DevOps Engineer"
+        subname: "Ladybird Web Solutions Pvt Ltd"
+        period: "Mar 2022 - <b>Present</b>"
+        text: "Managing infrastructure and automation for Faveo Helpdesk product including cloud deployments and container orchestration."
+
+      - name: "Junior Researcher"
+        subname: "I.K Gujral Punjab Technical University"
+        period: "Jun 2019 - Dec 2020"
+        text: "Worked as a Junior Researcher focusing on wireless communication systems and automation for academic research."
+
+### Pricing Section
+pricing:
+  title: "Pricing"
+  subtitle: "my <b>Price Board</b>"
+  bg_title: "Pricing"
+  items:
+    - name: "Hourly Basis"
+      center: false
+      price: "30 <b>$</b>"
+      price_after: "Hour"
+      text: "Perfect for small tasks, troubleshooting, and short consultations."
+      list:
+        - value: "Server Management"
+          included: true
+        - value: "CI/CD Setup"
+          included: true
+        - value: "Security Fixes"
+          included: false
+        - value: "Documentation"
+          included: true
+      button:
+        label: "Start Project"
+        link: "#contact-section"
+
+    - name: "Weekly Package"
+      center: true
+      label: "Popular"
+      price: "250 <b>$</b>"
+      price_after: "Week"
+      text: "Suitable for small to mid-size projects needing consistent support."
+      list:
+        - value: "Infrastructure Setup"
+          included: true
+        - value: "Monitoring Configuration"
+          included: true
+        - value: "Backup Planning"
+          included: true
+        - value: "Web Hosting Support"
+          included: true
+      button:
+        label: "Start Project"
+        link: "#contact-section"
+
+    - name: "Full Time"
+      center: false
+      price: "1000 <b>$</b>"
+      price_after: "Month"
+      text: "Dedicated monthly service with priority support and infrastructure management."
+      list:
+        - value: "Cloud and On-Prem Support"
+          included: true
+        - value: "CI/CD, Docker, K8s"
+          included: true
+        - value: "Documentation + Training"
+          included: true
+        - value: "Security Hardening"
+          included: true
+      button:
+        label: "Start Project"
+        link: "#contact-section"
+
+### Contact Section
+contacts:
+  title: "Contact Me"
+  subtitle: "Let’s <b>Talk About Ideas</b>"
+  bg_title: "Contact Me"
+  list:
+    - label: "Address"
+      icon: "far fa-map"
+      text: "Dedmuribagh, Chadoora Budgam, J&K, India"
+
+    - label: "Freelance"
+      icon: "far fa-user"
+      text: "Available for Projects"
+
+    - label: "Email"
+      icon: "far fa-envelope"
+      text: "er.m.asif@gmail.com"
+
+    - label: "Phone"
+      icon: "far fa-address-book"
+      text: "+91 9419549986"
+
+### Portfolio Section
+portfolio:
+  title: "Portfolio"
+  subtitle: "my <b>Cases</b>"
+  bg_title: "Portfolio"
+  button:
+    link: "works/"
+    label: "View More"
+
+### Multilingual Support
+languages:
+  default: "en"
+  supported:
+    - "en"
+    - "ur"
+    - "hi"
+
