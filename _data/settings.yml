@@ -10,27 +10,27 @@ settings:
 preloader:
   logo:
     image: "assets/img/logo.png"
-    alt: "TamilSelvan-Logo"
+    alt: "MohammadAsif-Logo"
 
 ### Header
 header:
   logo:
     image: "assets/img/logo.png"
-    alt: "TamilSelvan-Logo"
+    alt: "MohammadAsif-Logo"
 
 ### Social
 social:
   - title: "Linkedin"
     icon: "fab fa-linkedin"
-    url: "https://www.linkedin.com/in/thetamilselvan/"
+    url: "https://www.linkedin.com/in/mohammad-asif-048b0a232"
 
   - title: "Instagram"
     icon: "fab fa-instagram"
-    url: "https://www.instagram.com/the_tamilselvan/"
+    url: "https://www.instagram.com/shiekh_aasif/"
 
 ### Footer
 footer:
-  developer: "Developed by <strong>Tamilselvan</strong>"
+  developer: "Developed by <strong>Mohammad Asif</strong>"
   copyright: "<strong>TamilSelvan</strong>. All rights reserved"
 
 ### Portfolio Filters Settings
