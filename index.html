@@ -1,8 +1,324 @@
----
-# Feel free to add content and custom Front Matter to this file.
-# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohammad Asif | DevOps Engineer</title>
 
-layout: builder
-#sections: hero-image,services,skills,portfolio,resume,testimonials,pricing,blog,contacts
-sections: hero-image,services,skills,portfolio,resume,blog,contacts
----
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --primary:#2e7d32;
+  --secondary:#81c784;
+  --bg:#121212;
+  --card:#1e1e1e;
+  --muted:#9e9e9e;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  font-family:Poppins,sans-serif;
+  background:var(--bg);
+  color:#e0e0e0;
+  line-height:1.6;
+}
+
+a{color:var(--secondary);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* NAV */
+nav{
+  position:sticky;
+  top:0;
+  z-index:99;
+  background:#0f0f0f;
+  padding:15px 8%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid #1f1f1f;
+}
+nav h2{color:var(--secondary)}
+nav ul{display:flex;gap:22px;list-style:none}
+nav ul li a{font-size:14px;color:#e0e0e0}
+
+/* HERO */
+.hero{
+  padding:80px 8%;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  align-items:center;
+}
+.hero img{
+  width:260px;
+  border-radius:50%;
+  border:6px solid var(--primary);
+}
+.hero h1{font-size:46px}
+.hero h1 span{color:var(--secondary)}
+.hero h3{color:var(--secondary);font-weight:400}
+.hero p{color:var(--muted);margin:20px 0}
+
+.btn{
+  display:inline-block;
+  padding:12px 26px;
+  border-radius:30px;
+  background:var(--primary);
+  color:#fff;
+  font-size:14px;
+  margin:6px 10px 6px 0;
+}
+.btn.outline{
+  background:transparent;
+  border:1px solid var(--primary);
+}
+
+/* STATS */
+.stats{
+  background:#0f0f0f;
+  display:flex;
+  justify-content:center;
+  gap:50px;
+  padding:40px 8%;
+}
+.stat{text-align:center}
+.stat h2{font-size:36px;color:var(--secondary)}
+
+/* SECTION */
+section{padding:70px 8%}
+.section-title{text-align:center;margin-bottom:50px}
+.section-title h2{font-size:34px}
+.section-title span{color:var(--secondary)}
+
+/* SERVICES */
+.services{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
+}
+.card{
+  background:var(--card);
+  padding:30px;
+  border-radius:14px;
+  transition:.3s;
+}
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 10px 30px rgba(0,0,0,.4)
+}
+.card h3{
+  color:var(--secondary);
+  margin-bottom:12px
+}
+
+/* SKILLS */
+.skills{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:25px;
+}
+.skill-box{
+  background:var(--card);
+  padding:25px;
+  border-radius:14px;
+}
+.skill-box h4{
+  color:var(--secondary);
+  margin-bottom:8px;
+}
+.skill-box p{
+  color:#cfcfcf;
+  font-size:14px;
+}
+
+/* TOOLS */
+.tools{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:20px;
+}
+.tool{
+  background:var(--card);
+  padding:18px;
+  border-radius:12px;
+  text-align:center;
+  font-size:14px;
+}
+
+/* TIMELINE */
+.timeline{
+  border-left:3px solid var(--primary);
+  padding-left:25px
+}
+.timeline div{margin-bottom:30px}
+
+/* CONTACT */
+.contact{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+}
+input,textarea{
+  width:100%;
+  padding:12px;
+  margin-bottom:15px;
+  border:none;
+  border-radius:8px;
+  background:#2a2a2a;
+  color:#fff;
+}
+
+/* FOOTER */
+footer{
+  background:#0f0f0f;
+  text-align:center;
+  padding:25px;
+  font-size:14px;
+  color:var(--muted);
+}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;text-align:center}
+  .hero img{margin:auto}
+  .contact{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <h2>MohammadAsif</h2>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#resume">Resume</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div>
+    <h3>Hi!, I'm</h3>
+    <h1><span>Mohammad Asif</span></h1>
+    <h3>a DevOps Engineer</h3>
+    <p>
+      Highly motivated DevOps Engineer with 4+ years of experience in infrastructure management,
+      CI/CD, cloud-native tools, container orchestration, and monitoring solutions.
+    </p>
+
+    <a href="https://www.linkedin.com/in/mohammad-asif-048b0a232" target="_blank" class="btn">LinkedIn</a>
+    <a href="https://mohammadasifdevops.medium.com/" target="_blank" class="btn outline">Medium</a>
+    <a href="https://dnsxpansion.supersite2.myorderbox.com/" target="_blank" class="btn outline">Store</a>
+  </div>
+
+  <img src="https://1.gravatar.com/avatar/c0d70118d1dcf472a3b428453e49e1723127a1d83d8aeb4fb9d7b53a15860d13?size=512">
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat"><h2>4+</h2><p>Years Experience</p></div>
+  <div class="stat"><h2>20+</h2><p>Projects Completed</p></div>
+  <div class="stat"><h2>DevOps</h2><p>Engineer</p></div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+<div class="section-title"><h2>My <span>Services</span></h2></div>
+<div class="services">
+  <div class="card"><h3>Linux / Windows Servers</h3>Ubuntu, RHEL, Windows Server, Proxmox, hardening & automation.</div>
+  <div class="card"><h3>Cloud & CI/CD</h3>Jenkins, GitLab CI, ArgoCD, AWX Ansible.</div>
+  <div class="card"><h3>Docker & Kubernetes</h3>Official Docker images & DigitalOcean Kubernetes clusters.</div>
+  <div class="card"><h3>Monitoring & Logging</h3>Zabbix, Prometheus, Grafana, ELK, Uptime Kuma.</div>
+  <div class="card"><h3>Web Hosting & Security</h3>Apache, NGINX, LiteSpeed, SSL, CSF, WHM/cPanel.</div>
+  <div class="card"><h3>Domains & Hosting Store</h3>Domains, Hosting, SSL, Email, SiteLock, CodeGuard, Website Builder.</div>
+</div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+<div class="section-title"><h2>Professional <span>Skills</span></h2></div>
+<div class="skills">
+  <div class="skill-box"><h4>Cloud Services</h4><p>DigitalOcean, Hetzner, Contabo</p></div>
+  <div class="skill-box"><h4>CI/CD</h4><p>Jenkins, GitHub, ArgoCD</p></div>
+  <div class="skill-box"><h4>Containers</h4><p>Docker, Kubernetes</p></div>
+  <div class="skill-box"><h4>Monitoring</h4><p>Zabbix, Prometheus, Grafana, Uptime Kuma</p></div>
+  <div class="skill-box"><h4>Web Servers</h4><p>NGINX, Apache, LiteSpeed</p></div>
+  <div class="skill-box"><h4>Automation</h4><p>Bash, AWX Ansible</p></div>
+  <div class="skill-box"><h4>Hosting</h4><p>WHM/cPanel, WordPress, Laravel</p></div>
+  <div class="skill-box"><h4>Documentation</h4><p>Internal Wiki, Product Documentation</p></div>
+</div>
+</section>
+
+<!-- TOOLS -->
+<section>
+<div class="section-title"><h2>Tools I <span>Use Daily</span></h2></div>
+<div class="tools">
+  <div class="tool">Jenkins</div>
+  <div class="tool">Docker</div>
+  <div class="tool">Kubernetes</div>
+  <div class="tool">ArgoCD</div>
+  <div class="tool">Zabbix</div>
+  <div class="tool">Prometheus</div>
+  <div class="tool">Grafana</div>
+  <div class="tool">Proxmox</div>
+  <div class="tool">NGINX</div>
+  <div class="tool">GitHub</div>
+</div>
+</section>
+
+<!-- RESUME -->
+<section id="resume">
+<div class="section-title"><h2>My <span>Story</span></h2></div>
+<div class="timeline">
+  <div>
+    <h4>
+      DevOps Engineer —
+      <a href="https://www.ladybirdweb.com/" target="_blank">Ladybird Web Solutions</a> |
+      <a href="https://faveohelpdesk.com/" target="_blank">Faveo Helpdesk</a>
+    </h4>
+    <p>Mar 2022 – Present</p>
+  </div>
+  <div>
+    <h4>
+      Junior Researcher —
+      <a href="https://ptu.ac.in/" target="_blank">I.K. Gujral Punjab Technical University</a>
+    </h4>
+    <p>Jun 2019 – Dec 2020</p>
+  </div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<div class="section-title"><h2>Contact <span>Me</span></h2></div>
+<div class="contact">
+  <div class="card">
+    <p><strong>Address:</strong> Dedmuribagh, Chadoora Budgam, J&K, India</p>
+    <p><strong>Email:</strong> <a href="mailto:er.m.asif@gmail.com">er.m.asif@gmail.com</a></p>
+    <p><strong>Phone:</strong> +91 9419549986</p>
+    <p><strong>Freelance:</strong> Available for Projects</p>
+  </div>
+
+  <form class="card">
+    <input type="text" placeholder="Your Full Name *" required>
+    <input type="email" placeholder="Your Email Address *" required>
+    <input type="text" placeholder="Your Subject *" required>
+    <textarea rows="5" placeholder="Your Message *" required></textarea>
+    <button class="btn">Send Message</button>
+  </form>
+</div>
+</section>
+
+<footer>
+  © 2025 Mohammad Asif. All rights reserved<br>
+  Developed by Mohammad Asif
+</footer>
+
+</body>
+</html>
